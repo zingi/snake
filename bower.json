@@ -1,0 +1,17 @@
+{
+  "name": "snake",
+  "authors": [
+    "zingi <aaron.zingerle@gmail.com>"
+  ],
+  "description": "game",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
