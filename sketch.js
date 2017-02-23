@@ -1,6 +1,8 @@
-var gridSize    = 25;
-var mySnake     = new Snake();
-var foodArray   = new FoodArray();
+var gridSize        = 25;
+var myCanvasWidth   = 500;
+var myCanvasHeight  = 500;
+var mySnake         = new Snake();
+var foodArray       = new FoodArray();
 var actualMotion;
 var timeStart;
 var timeEnd;
@@ -14,7 +16,7 @@ var speedMillis     = 200;
 function setup()
 {
     frameRate(60);
-    var canvas = createCanvas(500,500);
+    var canvas = createCanvas(myCanvasWidth, myCanvasHeight);
 
     canvas.parent('container');
 
@@ -114,8 +116,8 @@ function Snake()
     this.checkEnd = function()
     {
         var snakeHead = this.parts[0];
-        if (snakeHead.x < 0 || snakeHead.x > width ||
-            snakeHead.y < 0 || snakeHead.y > height)
+        if (snakeHead.x < 0 || snakeHead.x >= myCanvasWidth ||
+            snakeHead.y < 0 || snakeHead.y >= myCanvasHeight)
         {
             return true;
         }
@@ -156,7 +158,7 @@ function FoodArray()
             {
                 while(true)
                 {
-                    var f = new Food(random(width), random(height));
+                    var f = new Food(random(myCanvasWidth), random(myCanvasHeight));
 
                     if(!this.isFoodOnSnake(f) && !this.isFoodOnFood(f))
                     {
